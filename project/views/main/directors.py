@@ -4,13 +4,13 @@ from project.container import director_service
 from project.setup.api.models import director
 from project.setup.api.parsers import page_parser
 
-api = Namespace('directors')
+director_ns = Namespace('directors')
 
 
-@api.route('/')
+@director_ns.route('/')
 class DirectorsView(Resource):
-    @api.expect(page_parser)
-    @api.marshal_with(director, as_list=True, code=200, description='OK') #marshal_with проверка данных полученных на выходе
+    @director_ns.expect(page_parser)
+    @director_ns.marshal_with(director, as_list=True, code=200, description='OK') #marshal_with проверка данных полученных на выходе
     def get(self):
         """
         Get all directors.
@@ -18,10 +18,10 @@ class DirectorsView(Resource):
         return director_service.get_all(**page_parser.parse_args())
 
 
-@api.route('/<int:director_id>/')
+@director_ns.route('/<int:director_id>/')
 class DirectorView(Resource):
-    @api.response(404, 'Not Found')
-    @api.marshal_with(director, code=200, description='OK')
+    @director_ns.response(404, 'Not Found')
+    @director_ns.marshal_with(director, code=200, description='OK')
     def get(self, director_id: int):
         """
         Get director by id.

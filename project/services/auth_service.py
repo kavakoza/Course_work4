@@ -57,7 +57,7 @@ class AuthService:
         data = jwt.decode(
             jwt=refresh_token,
             key=BaseConfig.SECRET_KEY,
-            algorithm=BaseConfig.ALGO
+            algorithms=BaseConfig.ALGO
         )
 
         email = data.get('email')

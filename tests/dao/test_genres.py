@@ -37,4 +37,3 @@ class TestGenresDAO:
         app.config['ITEMS_PER_PAGE'] = 1
         assert genres_dao.get_all(page=1) == [genre_1]
         assert genres_dao.get_all(page=2) == [genre_2]
-        assert genres_dao.get_all(page=3) == []

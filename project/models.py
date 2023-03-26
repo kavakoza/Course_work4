@@ -5,19 +5,19 @@ from project.setup.db import models
 
 
 class Genre(models.Base):
-    __tablename__ = 'genres'
+    __tablename__ = 'genre'
 
     name = Column(String(100), unique=True, nullable=False)
 
 
 class Director(models.Base):
-    __tablename__ = 'directors'
+    __tablename__ = 'director'
 
     name = Column(String(100), nullable=False)
 
 
 class Movie(models.Base):
-    __tablename__ = 'movies'
+    __tablename__ = 'movie'
 
     title = Column(String(255), nullable=False)
     description = Column(String(255), nullable=False)
@@ -31,7 +31,7 @@ class Movie(models.Base):
 
 
 class User(models.Base):
-    __tablename__ = 'users'
+    __tablename__ = 'user'
     email = Column(String(100), unique=True, nullable=False)
     password = Column(String(100), nullable=False)
     name = Column(String(100))

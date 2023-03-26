@@ -25,4 +25,4 @@ class MoviesService:
         :param page:
         :return:
         """
-        return self.dao.get_all(page=page, status=status)
+        return self.dao.get_all(page=page) #status=status
